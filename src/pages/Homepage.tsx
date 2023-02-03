@@ -21,10 +21,8 @@ export const Homepage = () => {
   const handleSubmit = (): void => {
     if (value.trim()) {
       setToDos([...toDoList, {text: value, completed: false}]);
-    } else {
-      showError(true);
-      setValue('');
-    }
+    } else showError(true);
+    setValue('');
   };
 
   const removeItem = (index: number): void => {
@@ -53,11 +51,10 @@ export const Homepage = () => {
             }}
             style={styles.inputBox}
           />
+          {error && <Text style={styles.error}> Input field is empty...</Text>}
           <Button title="Add Task" onPress={handleSubmit} />
         </View>
-        {error && (
-          <Text style={styles.error}>Error: Input field is empty...</Text>
-        )}
+
         <Text style={styles.subtitle}>Your Tasks :</Text>
         {toDoList.length === 0 && <Text>No to do task available</Text>}
         {toDoList.map((toDo: IToDo, index: number) => (
