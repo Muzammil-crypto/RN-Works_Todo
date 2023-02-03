@@ -99,9 +99,9 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     width: '100%',
-    borderColor: 'purple',
+    borderColor: theme.colors.primary,
     borderRadius: 8,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     padding: 8,
     marginBottom: 10,
   },
@@ -110,17 +110,17 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginBottom: 5,
     fontWeight: 'bold',
-    color: 'purple',
+    color: theme.colors.primary,
   },
   subtitle1: {
     fontSize: 14,
     marginBottom: 20,
-    color: 'black',
+    color: theme.colors.secondary,
   },
   subtitle: {
     fontSize: 20,
     marginBottom: 20,
-    color: 'purple',
+    color: theme.colors.primary,
   },
   listItem: {
     flexDirection: 'row',
@@ -136,6 +136,6 @@ const styles = StyleSheet.create({
     width: 200,
   },
   error: {
-    color: 'red',
+    color: theme.colors.error,
   },
 });
