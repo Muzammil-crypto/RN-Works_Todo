@@ -9,9 +9,8 @@ import {
 } from 'react-native';
 import {theme} from '../core/Theme';
 interface IToDo {
-  id: number;
-  name: string;
-  price: number;
+  text: string;
+  completed: boolean;
 }
 
 export const Homepage = () => {
@@ -20,9 +19,12 @@ export const Homepage = () => {
   const [error, showError] = useState<Boolean>(false);
   //Functoins
   const handleSubmit = (): void => {
-    if (value.trim()) setToDos([...toDoList, {text: value, completed: false}]);
-    else showError(true);
-    setValue('');
+    if (value.trim()) {
+      setToDos([...toDoList, {text: value, completed: false}]);
+    } else {
+      showError(true);
+      setValue('');
+    }
   };
 
   const removeItem = (index: number): void => {
@@ -63,6 +65,7 @@ export const Homepage = () => {
             <Text
               style={[
                 styles.task,
+                // eslint-disable-next-line react-native/no-inline-styles
                 {textDecorationLine: toDo.completed ? 'line-through' : 'none'},
               ]}>
               {toDo.text}
