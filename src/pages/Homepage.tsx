@@ -46,7 +46,7 @@ export const Homepage = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Create a Task </Text>
         <Text style={styles.subtitle1}>Enter the Task You Want To Create</Text>
-        <View style={styles.inputWrapper}>
+        <View style={styles.inputContainer}>
           <TextInput
             placeholder="Enter your todo task..."
             value={value}
@@ -89,11 +89,11 @@ export const Homepage = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 35,
+    padding: 20,
     alignItems: 'center',
     height: theme.dimensions.windowHeight,
   },
-  inputWrapper: {
+  inputContainer: {
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -125,16 +125,20 @@ const styles = StyleSheet.create({
     color: theme.colors.primary,
   },
   listItem: {
+    borderWidth: StyleSheet.hairlineWidth,
+    borderRadius: 3,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
     marginBottom: 10,
+    backgroundColor: theme.colors.themer,
   },
   addButton: {
     alignItems: 'flex-end',
   },
   task: {
+    marginLeft: 5,
     width: 200,
   },
   error: {

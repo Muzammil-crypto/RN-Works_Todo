@@ -5,17 +5,14 @@ export const theme = {
   ...DefaultTheme,
   colors: {
     // ...DefaultTheme.colors,
-    themer: 'light',
-
+    themer: '#d2f8d2',
     text: '#818181',
     primary: '#009243',
-
     secondary: 'black',
     error: 'red',
   },
   darkTheme: {
     themer: 'dark',
-
     text: 'white',
     primary: 'black',
     secondary: 'white',
