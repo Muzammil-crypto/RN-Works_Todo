@@ -18,6 +18,10 @@ export const Homepage = () => {
   const [toDoList, setToDos] = useState<IToDo[]>([]);
   const [error, showError] = useState<Boolean>(false);
   //Functoins
+  const onChangeText = (e: any): void => {
+    setValue(e);
+    showError(false);
+  };
   const handleSubmit = (): void => {
     if (value.trim()) {
       setToDos([...toDoList, {text: value, completed: false}]);
@@ -36,6 +40,7 @@ export const Homepage = () => {
     newToDoList[index].completed = !newToDoList[index].completed;
     setToDos(newToDoList);
   };
+
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -45,10 +50,7 @@ export const Homepage = () => {
           <TextInput
             placeholder="Enter your todo task..."
             value={value}
-            onChangeText={e => {
-              setValue(e);
-              showError(false);
-            }}
+            onChangeText={e => onChangeText(e)}
             style={styles.inputBox}
           />
           {error && <Text style={styles.error}> Input field is empty...</Text>}
