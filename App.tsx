@@ -1,18 +1,23 @@
-import React from 'react';
-import {StatusBar} from 'react-native';
+import React, {useState} from 'react';
+import {Todo, TodoContext} from './src/contexts/TodoContext';
 import {Homepage} from './src/pages/Homepage';
 
 function App(): JSX.Element {
+  const [value, setValue] = useState<string>('');
+  const [toDoList, setTodoList] = useState<Todo[]>([]);
+  const [error, setError] = useState<Boolean>(false);
   return (
-    <>
-      <StatusBar
-        showHideTransition={'slide'}
-        backgroundColor={'purple'}
-        hidden={false}
-        translucent={false}
-      />
+    <TodoContext.Provider
+      value={{
+        value,
+        setValue,
+        toDoList,
+        setTodoList,
+        error,
+        setError,
+      }}>
       <Homepage />
-    </>
+    </TodoContext.Provider>
   );
 }
 

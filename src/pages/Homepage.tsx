@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {theme} from '../core/Theme';
-interface IToDo {
+export interface IToDo {
   text: string;
   completed: boolean;
 }
