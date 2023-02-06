@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,6 +7,7 @@ import {
   Button,
   ScrollView,
 } from 'react-native';
+import {TodoContext} from '../contexts/TodoContext';
 import {theme} from '../core/Theme';
 export interface IToDo {
   text: string;
@@ -14,31 +15,30 @@ export interface IToDo {
 }
 
 export const Homepage = () => {
-  const [value, setValue] = useState<string>('');
-  const [toDoList, setToDos] = useState<IToDo[]>([]);
-  const [error, showError] = useState<Boolean>(false);
+  const {value, setValue, error, setError, toDoList, setTodoList} =
+    useContext(TodoContext);
   //Functoins
   const onChangeText = (e: any): void => {
-    setValue(e);
-    showError(false);
+    setValue!(e);
+    setError!(false);
   };
   const handleSubmit = (): void => {
     if (value.trim()) {
-      setToDos([...toDoList, {text: value, completed: false}]);
-    } else showError(true);
-    setValue('');
+      setTodoList!([...toDoList, {text: value, completed: false}]);
+    } else setError!(true);
+    setValue!('');
   };
 
   const removeItem = (index: number): void => {
     const newToDoList = [...toDoList];
     newToDoList.splice(index, 1);
-    setToDos(newToDoList);
+    setTodoList!(newToDoList);
   };
 
   const toggleComplete = (index: number): void => {
     const newToDoList = [...toDoList];
     newToDoList[index].completed = !newToDoList[index].completed;
-    setToDos(newToDoList);
+    setTodoList!(newToDoList);
   };
 
   return (
