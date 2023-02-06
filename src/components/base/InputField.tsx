@@ -8,5 +8,9 @@ interface InputProps {
 }
 
 export const InputField = ({placeholder, value}: InputProps) => {
-  return <TextInput placeholder={placeholder} value={value} />;
+  return (
+    <>
+      <TextInput placeholder={placeholder} value={value} />
+    </>
+  );
 };
