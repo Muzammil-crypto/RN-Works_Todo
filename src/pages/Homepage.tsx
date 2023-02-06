@@ -53,7 +53,7 @@ export const Homepage = () => {
         </View>
 
         <Text style={styles.subtitle}>Your Tasks :</Text>
-        {toDoList.length === 0 && <Text>No to do task available</Text>}
+        {toDoList.length === 0 && <Text>No to do task available :(</Text>}
         {toDoList.map((toDo: IToDo, index: number) => (
           <View style={styles.listItem} key={`${index}_${toDo.text}`}>
             <Text
