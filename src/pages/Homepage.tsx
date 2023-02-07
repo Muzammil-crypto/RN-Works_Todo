@@ -65,6 +65,7 @@ export const Homepage = () => {
               {toDo.text}
             </Text>
             <Button
+              testID={'addTodoBtn'}
               title={toDo.completed ? 'Completed' : 'Complete'}
               onPress={() => toggleComplete(index)}
             />
